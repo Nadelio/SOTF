@@ -1,3 +1,7 @@
+#git add .
+#git commit -m "New Patch"
+#git push
+
 #imports
 import random
 import sys
