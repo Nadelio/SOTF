@@ -1,6 +1,7 @@
 #git add .
 #git commit -m "New Patch"
-#git push
+#git branch --unset-upstream
+#git push --set-upstream origin main
 
 #imports
 import random
