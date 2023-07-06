@@ -40,26 +40,26 @@ def invcheck():
     cls.cls()
     for item in inv:
         print(item)
+    choose_poi()
 
 
 #main menu/startup "move" command
 def choose_poi():
-    while True:
-        cls.cls()
-        equipment()
-        player = input('Type "city" to go to the City\nType "forest" to go to the Forest\nType "inv" to check your inventory\nType "craft" to craft an item\nType "save" to save your progress\nType "stop" to close the program\n')
-        if(player == "city"):
-            enter_city()
-        if(player == "forest"):
-            enter_forest()
-        if(player == "inv"):
-            invcheck()
-        if(player == "craft"):
-            crafting()
-        if(player == "stop"): 
-            break 
-        if(player == "save"):
-            save_func()
+    cls.cls()
+    equipment()
+    player = input('Type "city" to go to the City\nType "forest" to go to the Forest\nType "inv" to check your inventory\nType "craft" to craft an item\nType "save" to save your progress\nType "stop" to close the program\n')
+    if(player == "city"):
+        enter_city()
+    if(player == "forest"):
+        enter_forest()
+    if(player == "inv"):
+        invcheck()
+    if(player == "craft"):
+        crafting()
+    if(player == "stop"): 
+        sys.exit() 
+    if(player == "save"):
+        save_func()
 
 
 #runs when entering the city
@@ -69,6 +69,8 @@ def enter_city():
     player = input("Do you want to search the city?\n")
     if(player.lower().strip() in ["y", "yes"]):
         search_city()
+    if(player.lower().strip() in ["n", "no"]):
+        choose_poi()
 
 
 #runs when entering the forest
@@ -78,6 +80,8 @@ def enter_forest():
     player = input("Do you want to search the forest?\n")
     if(player.lower().strip() in ["y", "yes"]):
         search_forest()
+    if(player.lower().strip() in ["n", "no"]):
+        choose_poi()
 
 
 #runs when searching city
@@ -100,6 +104,7 @@ def search_city():
         mob_spawn()
     else:
         print("No enemies")
+        choose_poi()
 
 
 #runs when searching forest
@@ -122,6 +127,7 @@ def search_forest():
         mob_spawn()
     else:
         print("No enemies")
+        choose_poi()
 
 
 
@@ -135,6 +141,7 @@ def mob_spawn():
         hit_chance = random.randrange(2)
         if(hit_chance == 1):
             print("You escaped!")
+            choose_poi()
         else:
             print("You failed to escape")
             print("Fight started!")
@@ -170,6 +177,7 @@ def fighting():
             print("You won the fight!")
             mob_hp = 5
             player_hp = 10
+            choose_poi()
 
 
 #player attack code/player flee code
@@ -195,6 +203,7 @@ def player_atk():
             print("You fled!")
             player_hp = 10
             mob_hp = 5
+            choose_poi()
         else:
             print("You failed to escape!")
 
@@ -281,6 +290,7 @@ def crafting():
             mshield_craft = 0
     equipment()
     save_func()
+    choose_poi()
 
 
 #dev console commands (password protect)
