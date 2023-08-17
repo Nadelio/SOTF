@@ -226,85 +226,88 @@ def player_atk():
 #crafting code (pain in the ass to write)
 def crafting():
     cls.cls()
-    global handle_craft
-    global gspear_craft
-    global wshield_craft
-    global mspear_craft
-    global mshield_craft
-    save()
-    print("Recipes:\nRope - Vines\nHandle - 2 sticks\nGlass Spear - Handle, Rope, Glass\nWooden Shield - Wood, Handle\nMetal Spear - Handle, Rope, Metal Scrap\nMetal Shield - Metal Scrap, Handle\n")
-    player = input("What would you like to craft?\n1 - Rope\n2 - Handle\n3 - Glass Spear\n4 - Wooden Shield\n5 - Metal Spear\n6- Metal Shield\n")
-    if(player == "1"):
-        if("vines" in inv):
-            inv.remove("vines")
-            inv.append("rope")
-            print("Rope added to inventory")
-    if(player == "2"):
-        if("stick" in inv):
-            handle_craft += 1
-        if("stick" in inv):
-            handle_craft += 1
-        if(handle_craft == 2):
-            inv.remove("stick")
-            inv.remove("stick")
-            inv.append("handle")
-            print("Handle added to inventory")
-            handle_craft = 0
-    if(player == "3"):
-        if("glass" in inv):
-            gspear_craft += 1
-        if("rope" in inv):
-            gspear_craft += 1
-        if("handle" in inv):
-            gspear_craft += 1
-        if(gspear_craft == 3):
-            inv.remove("glass")
-            inv.remove("rope")
-            inv.remove("handle")
-            inv.append("glass spear")
-            print("Glass Spear added to inventory")
-            gspear_craft = 0
-    if(player == "4"):
-        if("wood" in inv):
-            wshield_craft += 1
-        if("handle" in inv):
-            wshield_craft += 1
-        if(wshield_craft == 2):
-            inv.remove("wood")
-            inv.remove("handle")
-            inv.append("wooden shield")
-            print("Wooden Shield added to inventory")
-            wshield_craft = 0
-    if(player == "5"):
-        if("rope" in inv):
-            mspear_craft += 1
-        if("handle" in inv):
-            mspear_craft += 1
-        if("metal scrap" in inv):
-            mspear_craft += 1
-        if(mspear_craft == 3):
-            inv.remove("rope")
-            inv.remove("handle")
-            inv.remove("metal scrap")
-            inv.append("metal spear")
-            if("glass spear" in inv and mspear_craft == 3):
-                inv.remove("glass spear")
-            print("Metal Spear added to inventory")
-            mspear_craft = 0
-    if(player == "6"):
-        if("metal scrap" in inv):
-            mshield_craft += 1
-        if("handle" in inv):
-            mshield_craft += 1
-        if(mshield_craft == 2):
-            inv.remove("handle")
-            inv.remove("metal scrap")
-            inv.append("metal shield")
-            if("wood shield" in inv and mshield_craft == 2):
-                inv.remove("wood shield")
-            print("Metal Shield added to inventory")
-            mshield_craft = 0
-    close_save()
+    if(inv == []):
+        pass
+    else:
+        global handle_craft
+        global gspear_craft
+        global wshield_craft
+        global mspear_craft
+        global mshield_craft
+        save()
+        print("Recipes:\nRope - Vines\nHandle - 2 sticks\nGlass Spear - Handle, Rope, Glass\nWooden Shield - Wood, Handle\nMetal Spear - Handle, Rope, Metal Scrap\nMetal Shield - Metal Scrap, Handle\n")
+        player = input("What would you like to craft?\n1 - Rope\n2 - Handle\n3 - Glass Spear\n4 - Wooden Shield\n5 - Metal Spear\n6- Metal Shield\n")
+        if(player == "1"):
+            if("vines" in inv):
+                inv.remove("vines")
+                inv.append("rope")
+                print("Rope added to inventory")
+        if(player == "2"):
+            if("stick" in inv):
+                handle_craft += 1
+            if("stick" in inv):
+                handle_craft += 1
+            if(handle_craft == 2):
+                inv.remove("stick")
+                inv.remove("stick")
+                inv.append("handle")
+                print("Handle added to inventory")
+                handle_craft = 0
+        if(player == "3"):
+            if("glass" in inv):
+                gspear_craft += 1
+            if("rope" in inv):
+                gspear_craft += 1
+            if("handle" in inv):
+                gspear_craft += 1
+            if(gspear_craft == 3):
+                inv.remove("glass")
+                inv.remove("rope")
+                inv.remove("handle")
+                inv.append("glass spear")
+                print("Glass Spear added to inventory")
+                gspear_craft = 0
+        if(player == "4"):
+            if("wood" in inv):
+                wshield_craft += 1
+            if("handle" in inv):
+                wshield_craft += 1
+            if(wshield_craft == 2):
+                inv.remove("wood")
+                inv.remove("handle")
+                inv.append("wooden shield")
+                print("Wooden Shield added to inventory")
+                wshield_craft = 0
+        if(player == "5"):
+            if("rope" in inv):
+                mspear_craft += 1
+            if("handle" in inv):
+                mspear_craft += 1
+            if("metal scrap" in inv):
+                mspear_craft += 1
+            if(mspear_craft == 3):
+                inv.remove("rope")
+                inv.remove("handle")
+                inv.remove("metal scrap")
+                inv.append("metal spear")
+                if("glass spear" in inv and mspear_craft == 3):
+                    inv.remove("glass spear")
+                print("Metal Spear added to inventory")
+                mspear_craft = 0
+        if(player == "6"):
+            if("metal scrap" in inv):
+                mshield_craft += 1
+            if("handle" in inv):
+                mshield_craft += 1
+            if(mshield_craft == 2):
+                inv.remove("handle")
+                inv.remove("metal scrap")
+                inv.append("metal shield")
+                if("wood shield" in inv and mshield_craft == 2):
+                    inv.remove("wood shield")
+                print("Metal Shield added to inventory")
+                mshield_craft = 0
+        close_save()
     equipment()
     choose_poi()
 
@@ -358,7 +361,7 @@ def equipment():
         weapon_dmg = 0
 
 
-#put saving function here vvvv
+#save functions
 def save():
     filename = 'Save.json'
     with open(filename, 'r') as f:
