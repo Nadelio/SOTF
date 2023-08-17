@@ -1,5 +1,11 @@
 # SOTF
 
-#That's all atm, thanks for taking the time to look at my game :)
+#Version 2.2.2
+#Changelog -> Save System
 
-#Also there is currently a bug with the save system, I apologize for releasing it when it doesn't work. I will continue bug fixing it until it does. Hopefully by then I will also have a couple other things added to help randomize playthroughs.
+#Next big release -> 2.3.0
+#Planned features -> Randomized Enemy Stats, Save System
+
+#I'll update the README.md whenever I create a new Game_Draft.py commit
+
+#Thank you for stopping by and looking at my project, I hope you enjoy my project and come back again! :)
