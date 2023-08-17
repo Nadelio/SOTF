@@ -2,8 +2,6 @@
 #git commit -m "New Patch"
 #git push
 
-#DON'T FORGET TO ADD save() and close_save() around every inv.append() line
-
 
 #imports
 import random
