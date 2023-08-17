@@ -2,12 +2,15 @@
 #git commit -m "New Patch"
 #git push
 
+#DON'T FORGET TO ADD save() and close_save() around every inv.append() line
+
+
 #imports
 import random
 import sys
 import time
 import cls
-from Save import *
+import json
 
 #probability
 hit_chance = ""
@@ -16,6 +19,8 @@ hit_chance = ""
 #player input
 player = ""
 
+#player inventory
+inv = []
 
 #player and enemy data
 player_hp = 10
@@ -47,7 +52,7 @@ def invcheck():
 def choose_poi():
     cls.cls()
     equipment()
-    player = input('Type "city" to go to the City\nType "forest" to go to the Forest\nType "inv" to check your inventory\nType "craft" to craft an item\nType "save" to save your progress\nType "stop" to close the program\n')
+    player = input('Type "city" to go to the City\nType "forest" to go to the Forest\nType "inv" to check your inventory\nType "craft" to craft an item\n')
     if(player == "city"):
         enter_city()
     if(player == "forest"):
@@ -57,9 +62,7 @@ def choose_poi():
     if(player == "craft"):
         crafting()
     if(player == "stop"): 
-        sys.exit() 
-    if(player == "save"):
-        save_func()
+        sys.exit()
 
 
 #runs when entering the city
@@ -89,13 +92,19 @@ def search_city():
     cls.cls()
     hit_chance = random.randrange(5)
     if(hit_chance == 1):
+        save()
         inv.append("stone")
+        close_save()
         print("Stone added to inventory")
     elif(hit_chance == 2):
+        save()
         inv.append("glass")
+        close_save()
         print("Glass added to inventory")
     elif(hit_chance == 3):
+        save()
         inv.append("metal scrap")
+        close_save()
         print("Metal scrap added to inventory")
     else:
         print("Nothing found")
@@ -112,13 +121,19 @@ def search_forest():
     cls.cls()
     hit_chance = random.randrange(5)
     if(hit_chance == 1):
+        save()
         inv.append("wood")
+        close_save()
         print("Wood added to inventory")
     elif(hit_chance == 2):
+        save()
         inv.append("stick")
+        close_save()
         print("Stick added to inventory")
     elif(hit_chance == 3):
+        save()
         inv.append("vines")
+        close_save()
         print("Vines added to inventory")
     else:
         print("Nothing found")
@@ -169,7 +184,9 @@ def fighting():
             if(player.lower().strip() in ["y", "yes"]):
                 player_hp = 10
                 mob_hp = 5
+                save()
                 inv.clear()
+                close_save()
                 run()
             else:
                 sys.exit()
@@ -216,6 +233,7 @@ def crafting():
     global wshield_craft
     global mspear_craft
     global mshield_craft
+    save()
     print("Recipes:\nRope - Vines\nHandle - 2 sticks\nGlass Spear - Handle, Rope, Glass\nWooden Shield - Wood, Handle\nMetal Spear - Handle, Rope, Metal Scrap\nMetal Shield - Metal Scrap, Handle\n")
     player = input("What would you like to craft?\n1 - Rope\n2 - Handle\n3 - Glass Spear\n4 - Wooden Shield\n5 - Metal Spear\n6- Metal Shield\n")
     if(player == "1"):
@@ -288,8 +306,8 @@ def crafting():
                 inv.remove("wood shield")
             print("Metal Shield added to inventory")
             mshield_craft = 0
+    close_save()
     equipment()
-    save_func()
     choose_poi()
 
 
@@ -300,11 +318,14 @@ def dev_console():
     player = input("Correct password.\nCommands enabled\nType 'add' to add an item to the inventory\nType 'stat' to print player statistics like damage or armor\nType 'clear' to clear inventory\nType 'back' to go back to run menu\n")
     if(player == "add"):
         player = input("DEV_ADD_CMD\n")
+        save()
         inv.append(player)
-        save_func()
+        close_save()
         dev_console()
     elif(player == "clear"):
+        save()
         inv.clear()
+        close_save()
         dev_console()
     elif(player == "stat"):
         print("Player Health: ",player_hp)
@@ -340,16 +361,15 @@ def equipment():
 
 
 #put saving function here vvvv
-def save_func():
-    file_builder = open("Save.py", "w+") #instantiates the file
-    file_builder.write("inv = [") #this is my ghetto solution to writing lists into .py files
-    for x in inv:
-        file_builder.write("'")
-        file_builder.write(x)
-        file_builder.write("', ")
-    file_builder.write("]\n") #this is the end of ghetto solution to writing lists into .py files
-    #file_builder.write("player_hp = " + str(player_hp)) #adds variable player_hp into Save.py (FOR FUTURE REFRENCE)
-    file_builder.close() #closes the file_builder so it doesn't run infinitely
+def save():
+    filename = 'Save.json'
+    with open(filename, 'r') as f:
+        data = json.load(f)
+        inv = data #<--- replace 'inv' value
+
+def close_save():
+    with open('Save.json', 'w') as f:
+        json.dump(inv, f, indent=4)
 
 
 #startup code
