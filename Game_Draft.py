@@ -142,6 +142,7 @@ def search_forest():
         print("No enemies")
         choose_poi()
 
+#randomizes mob stats
 def rand_mob_stats():
     global mob_hp
     global mob_dmg
