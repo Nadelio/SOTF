@@ -26,7 +26,7 @@ armor = 0
 mob_dmg = 0
 mob_hp = 0
 mob_armor = 0
-player_dmg = 1
+player_dmg = 2
 weapon_dmg = 0
 
 
