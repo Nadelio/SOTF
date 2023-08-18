@@ -142,13 +142,20 @@ def search_forest():
         print("No enemies")
         choose_poi()
 
-
+def rand_mob_stats():
+    global mob_hp
+    global mob_dmg
+    global mob_armor
+    mob_hp = random.randrange(4)+1
+    mob_dmg = random.randrange(1)+1
+    mob_armor = random.randrange(1)+1
 
 #enemy probability to spawn code/fight start code
 def mob_spawn():
     player = input("An enemy has appeared!\nDo you want to fight it?\n")
     if(player.lower().strip() in ["y", "yes"]):
         print("Fight started!")
+        rand_mob_stats()
         fighting()
     elif(player.lower().strip() in ["n", "no"]):
         hit_chance = random.randrange(2)
