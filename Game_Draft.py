@@ -106,7 +106,7 @@ def search_city():
         print("Metal scrap added to inventory")
     else:
         print("Nothing found")
-    hit_chance = random.randrange(3)
+    hit_chance = random.randrange(2)
     if(hit_chance >= 1):
         mob_spawn()
     else:
@@ -117,7 +117,7 @@ def search_city():
 #runs when searching forest
 def search_forest():
     cls.cls()
-    hit_chance = random.randrange(5)
+    hit_chance = random.randrange(3)
     if(hit_chance == 1):
         save()
         inv.append("wood")
@@ -135,7 +135,7 @@ def search_forest():
         print("Vines added to inventory")
     else:
         print("Nothing found")
-    hit_chance = random.randrange(3)
+    hit_chance = random.randrange(2)
     if(hit_chance >= 1):
         mob_spawn()
     else:
@@ -159,7 +159,7 @@ def mob_spawn():
         rand_mob_stats()
         fighting()
     elif(player.lower().strip() in ["n", "no"]):
-        hit_chance = random.randrange(2)
+        hit_chance = random.randrange(1)
         if(hit_chance == 1):
             print("You escaped!")
             choose_poi()
@@ -179,8 +179,8 @@ def fighting():
     global weapon_dmg
     while(player_hp > 0 or mob_hp > 0):
         player_hp = player_hp
-        hit_chance = random.randrange(8)
-        if(hit_chance >= 6):
+        hit_chance = random.randrange(4)
+        if(hit_chance >= 3):
             print("You've been hit!")
             player_hp = player_hp - (mob_dmg - armor)
             print("Player health: ",player_hp)
@@ -221,7 +221,7 @@ def player_atk():
             print("Attack failed!")
             fighting()
     elif(player == "run"):
-        hit_chance = random.randrange(3)
+        hit_chance = random.randrange(2)
         if(hit_chance == 1 or hit_chance == 2):
             print("You fled!")
             player_hp = 10
