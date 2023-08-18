@@ -88,7 +88,7 @@ def enter_forest():
 #runs when searching city
 def search_city():
     cls.cls()
-    hit_chance = random.randrange(5)
+    hit_chance = random.randrange(3)
     if(hit_chance == 1):
         save()
         inv.append("stone")
