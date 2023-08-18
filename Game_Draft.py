@@ -1,7 +1,4 @@
-#git add .
-#git commit -m "New Patch"
-#git push
-
+#Top of the script to you :>
 
 #imports
 import random
