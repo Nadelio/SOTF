@@ -23,8 +23,8 @@ inv = []
 #player and enemy data
 player_hp = 10
 armor = 0
-mob_dmg = 1
-mob_hp = 5
+mob_dmg = 0
+mob_hp = 0
 mob_armor = 0
 player_dmg = 1
 weapon_dmg = 0
