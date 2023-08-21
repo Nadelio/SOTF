@@ -11,8 +11,8 @@ Next big release -> 2.4.0
 
 Planned features -> Traits, Research Tree
 #
-I'll update the README.md whenever I do a release
-
+I'll update the README.md whenever I do a release and whenever I see anything I need to fix on the README.md, such as spelling errors, format errors, or missing info.
+#
 Thank you for stopping by and looking at my project, I hope you enjoy my project and come back again! :)
 
 Also join this discord (https://discord.gg/K9r6f3YKDH) for further updates on this game as well as any other projects I may start! I also give further information on planned and upcoming features for every new release!
