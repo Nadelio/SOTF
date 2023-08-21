@@ -146,7 +146,7 @@ def rand_mob_stats():
     global mob_armor
     mob_hp = random.randrange(4)+1
     mob_dmg = random.randrange(1)+1
-    mob_armor = random.randrange(1)+1
+    mob_armor = random.randrange(1)
 
 #enemy probability to spawn code/fight start code
 def mob_spawn():
