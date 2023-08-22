@@ -348,6 +348,8 @@ def dev_console():
 def equipment():
     global weapon_dmg
     global armor
+    
+    #armor and shields
     if("metal shield" in inv):
         armor = 2
     elif("wood shield" in inv):
@@ -357,13 +359,15 @@ def equipment():
 
 
 
-
+    #weapons
     if("metal spear" in inv):
         weapon_dmg = 2
     elif("glass spear" in inv):
         weapon_dmg = 1
     else:
         weapon_dmg = 0
+
+    #a place for equipment in the future (ex: fishing rod, pickaxe, axe, etc)
 
 
 #save functions
