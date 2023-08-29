@@ -4,7 +4,7 @@
 import random
 import sys
 import time
-import cls
+import clear_screen
 import json
 
 #probability
@@ -37,7 +37,7 @@ mshield_craft = 0
 
 #inventory command
 def invcheck():
-    cls.cls()
+    clear_screen.main()
     for item in inv:
         print(item)
     choose_poi()
@@ -45,24 +45,28 @@ def invcheck():
 
 #main menu/startup "move" command
 def choose_poi():
-    cls.cls()
+    clear_screen.main()
     equipment()
     player = input('Type "city" to go to the City\nType "forest" to go to the Forest\nType "inv" to check your inventory\nType "craft" to craft an item\n')
-    if(player == "city"):
-        enter_city()
-    if(player == "forest"):
-        enter_forest()
-    if(player == "inv"):
-        invcheck()
-    if(player == "craft"):
-        crafting()
-    if(player == "stop"): 
-        sys.exit()
+    
+    match player:
+        case "city":
+            enter_city()
+        case "forest":
+            enter_forest
+        case "inv":
+            invcheck()
+        case "inventory":
+            invcheck()
+        case "craft":
+            crafting()
+        case "stop":
+            sys.exit()
 
 
 #runs when entering the city
 def enter_city():
-    cls.cls()
+    clear_screen.main()
     print("Entered City")
     player = input("Do you want to search the city?\n")
     if(player.lower().strip() in ["y", "yes"]):
@@ -73,7 +77,7 @@ def enter_city():
 
 #runs when entering the forest
 def enter_forest():
-    cls.cls()
+    clear_screen.main()
     print("Entered Forest")
     player = input("Do you want to search the forest?\n")
     if(player.lower().strip() in ["y", "yes"]):
@@ -84,7 +88,7 @@ def enter_forest():
 
 #runs when searching city
 def search_city():
-    cls.cls()
+    clear_screen.main()
     hit_chance = random.randrange(3)
     if(hit_chance == 1):
         save()
@@ -113,7 +117,7 @@ def search_city():
 
 #runs when searching forest
 def search_forest():
-    cls.cls()
+    clear_screen.main()
     hit_chance = random.randrange(3)
     if(hit_chance == 1):
         save()
@@ -230,7 +234,7 @@ def player_atk():
 
 #crafting code (pain in the ass to write)
 def crafting():
-    cls.cls()
+    clear_screen.main()
     if(inv == []):
         pass
     else:
@@ -319,7 +323,7 @@ def crafting():
 
 #dev console commands (password protect)
 def dev_console():
-    cls.cls()
+    clear_screen.main()
     equipment()
     player = input("Correct password.\nCommands enabled\nType 'add' to add an item to the inventory\nType 'stat' to print player statistics like damage or armor\nType 'clear' to clear inventory\nType 'back' to go back to run menu\n")
     if(player == "add"):
@@ -384,7 +388,7 @@ def close_save():
 
 #startup code
 def run():
-    player = input('Type "inv" to check your inventory\nType "move" to choose a place to go\nType "craft" to open the crafting options\nType "stop" to stop the program\n')
+    player = input('Type "inv" (or "inventory") to check your inventory\nType "move" to choose a place to go\nType "craft" to open the crafting options\nType "stop" to stop the program\n')
     if(player == "inv"):
         invcheck()
     elif(player == "move"):
