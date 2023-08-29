@@ -18,5 +18,5 @@ I'll update the README.md whenever I do a release and whenever I see anything I 
 #
 Thank you for stopping by and looking at my project, I hope you enjoy my project and come back again! :)
 
-Also join this discord (https://discord.gg/K9r6f3YKDH) for further updates on this game as well as any other projects I may start! I also give further information on planned and upcoming features for every new release!
+Also join this discord ([Nadelio's Hub](https://discord.gg/W9jr78mSHC)) for further updates on this game as well as any other projects I may start! I also give further information on planned and upcoming features for every new release!
 
