@@ -9,6 +9,7 @@ I have a full planned feature roadmap in the discord server linked in the README
 #
 __Please make sure that you name your commits after your username__
 
+
 EX: commit message -> ``Nadelio``
 This will help me figure out who did what and when without digging through the code.
 #
