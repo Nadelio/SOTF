@@ -11,5 +11,7 @@ __Please make sure that you name your commits after your username__
 
 
 EX: commit message -> ``Nadelio``
+
+
 This will help me figure out who did what and when without digging through the code.
 #
