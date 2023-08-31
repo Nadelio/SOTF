@@ -8,6 +8,8 @@ inv.add_item("rope")
 inv.add_item("rope")
 inv.add_item("handle")
 inv.add_item("metal scrap")
+
+
 def crafting_attempt():
     for required_item in recipes_blueprints["metal spear"]:
         if inv.contains_item(required_item):
