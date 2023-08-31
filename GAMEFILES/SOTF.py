@@ -27,15 +27,6 @@ mob_armor = 0
 player_dmg = 2
 weapon_dmg = 0
 
-
-#crafting data
-handle_craft = 0
-gspear_craft = 0
-wshield_craft = 0
-mspear_craft = 0
-mshield_craft = 0
-
-
 #inventory command
 def invcheck():
     clear_screen.main()
@@ -226,11 +217,6 @@ def crafting():
     if(inventory.is_empty()):
         pass
     else:
-        global handle_craft
-        global gspear_craft
-        global wshield_craft
-        global mspear_craft
-        global mshield_craft
         save_manager.save_data()
         print("Recipes:\nRope - Vines\nHandle - 2 sticks\nGlass Spear - Handle, Rope, Glass\nWooden Shield - Wood, Handle\nMetal Spear - Handle, Rope, Metal Scrap\nMetal Shield - Metal Scrap, Handle\n")
         player = input("What would you like to craft?\n1 - Rope\n2 - Handle\n3 - Glass Spear\n4 - Wooden Shield\n5 - Metal Spear\n6- Metal Shield\n")
