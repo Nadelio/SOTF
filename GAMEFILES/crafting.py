@@ -20,7 +20,7 @@ def crafting_attempt(input):
             inv.remove_item(required_item)
         #print(attempt)
 
-    print(len(recipes_blueprints[input]))
+    #print(len(recipes_blueprints[input]))
     
     if attempt == len(recipes_blueprints[input]):
         attempt = 0
