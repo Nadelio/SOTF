@@ -7,3 +7,15 @@ Currently I want to improve the cycling system (the choose_poi() function) to pr
 Afterwards, I'd like to work towards the trait and research tree systems
 I have a full planned feature roadmap in the discord server linked in the README.md file, please look at that for further information.
 #
+__Please make sure that you name your commits after your username__
+
+
+EX: commit message -> ``Nadelio``
+
+
+This will help me figure out who did what and when without digging through the code.
+#
+#### List of Current Collaborators:
+- Pyrolyzed
+- DataGamingYT
+- EightyBity

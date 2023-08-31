@@ -7,6 +7,7 @@ import time
 import cls
 import json
 
+
 #probability
 hit_chance = ""
 
