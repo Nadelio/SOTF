@@ -15,3 +15,7 @@ EX: commit message -> ``Nadelio``
 
 This will help me figure out who did what and when without digging through the code.
 #
+#### List of Current Collaborators:
+- Pyrolyzed
+- DataGamingYT
+- EightyBity
