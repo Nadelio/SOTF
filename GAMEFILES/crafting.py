@@ -25,6 +25,7 @@ def crafting_attempt(input):
     if attempt == len(recipes_blueprints[input]):
         attempt = 0
         inv.add_item(input)
+        print(f"Successful crafted {input}")
         return True
         #for item in inv.items:
         #    print(item)
