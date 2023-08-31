@@ -12,16 +12,16 @@ inv.add_item("metal scrap")
 '''
 #^^^test code
 
-def crafting_attempt():
-    for required_item in recipes_blueprints["metal spear"]:
+def crafting_attempt(input):
+    for required_item in recipes_blueprints[input]:
         if inv.contains_item(required_item):
             attempt += 1
             inv.remove_item(required_item)
         print(attempt)
 
-    print(len(recipes_blueprints["metal spear"]))
-    if attempt == len(recipes_blueprints["metal spear"]):
+    print(len(recipes_blueprints[input]))
+    if attempt == len(recipes_blueprints[input]):
         attempt = 0
-        inv.add_item("metal_spear")
+        inv.add_item(input)
         #for item in inv.items:
         #    print(item)
