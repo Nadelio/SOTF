@@ -1,5 +1,5 @@
 import inventory
-recipes_blueprints = {"metal spear":["rope","handle","metal scrap"]} # finish adding the rest of the recipes please
+recipes_blueprints = {"metal spear":["rope","handle","metal scrap"], "rope":["vines"], "handle":["stick","stick"]} # finish adding the rest of the recipes please
 
 
 
@@ -26,8 +26,8 @@ def crafting_attempt(input):
         attempt = 0
         inv.add_item(input)
         print(f"Successful crafted {input}")
-        return True
+        # return True
         #for item in inv.items:
         #    print(item)
-    else:
-        return False
+    # else:
+    #     return False

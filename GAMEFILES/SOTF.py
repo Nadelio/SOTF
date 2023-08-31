@@ -8,6 +8,7 @@ import clear_screen
 import save_manager
 import input_utils
 import inventory
+import crafting
 #probability
 hit_chance = ""
 
@@ -233,19 +234,12 @@ def crafting():
         save_manager.save_data()
         print("Recipes:\nRope - Vines\nHandle - 2 sticks\nGlass Spear - Handle, Rope, Glass\nWooden Shield - Wood, Handle\nMetal Spear - Handle, Rope, Metal Scrap\nMetal Shield - Metal Scrap, Handle\n")
         player = input("What would you like to craft?\n1 - Rope\n2 - Handle\n3 - Glass Spear\n4 - Wooden Shield\n5 - Metal Spear\n6- Metal Shield\n")
-        if(player == "1"): pass
-            # if(inventory.contains_item("vines")):
-            #     inventory.remove_item("vines")
-            #     inventory.add_item("rope")
-            #     print("Rope added to inventory")
-        if(player == "2"): pass
-            # if(inventory.contains_item("stick", 2)):
-            #     handle_craft += 2
-            # if(handle_craft == 2):
-            #     inventory.remove_item("stick", 2)
-            #     inventory.add_item("handle")
-            #     print("Handle added to inventory")
-            #     handle_craft = 0
+        if(player == "1"):
+            crafting.crafting_attempt("rope")
+            # 1 vine = 1 rope
+        if(player == "2"):
+            crafting.crafting_attempt("handle")
+            # 2 stick = 1 handle
         if(player == "3"): pass
             # if(inventory.contains_item("glass")):
             #     gspear_craft += 1
