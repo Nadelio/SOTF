@@ -17,9 +17,9 @@ def crafting_attempt(input):
         if inv.contains_item(required_item):
             attempt += 1
             inv.remove_item(required_item)
-        print(attempt)
+        #print(attempt)
 
-    print(len(recipes_blueprints[input]))
+    #print(len(recipes_blueprints[input]))
     if attempt == len(recipes_blueprints[input]):
         attempt = 0
         inv.add_item(input)
