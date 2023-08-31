@@ -128,13 +128,14 @@ def search_forest():
 #randomizes mob stats
 def rand_mob_stats():
     mob = constructor_test.Mob()
+    return mob
 
 #enemy probability to spawn code/fight start code
 def mob_spawn():
     player = input("An enemy has appeared!\nDo you want to fight it?\n")
     if(player.lower().strip() in ["y", "yes"]):
         print("Fight started!")
-        rand_mob_stats()
+        mob = rand_mob_stats()
         fighting()
     elif(player.lower().strip() in ["n", "no"]):
         hit_chance = random.randrange(1)
