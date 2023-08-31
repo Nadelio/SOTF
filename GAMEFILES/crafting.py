@@ -23,5 +23,5 @@ def crafting_attempt():
     if attempt == len(recipes_blueprints["metal spear"]):
         attempt = 0
         inv.add_item("metal_spear")
-        for item in inv.items:
-            print(item)
+        #for item in inv.items:
+        #    print(item)
