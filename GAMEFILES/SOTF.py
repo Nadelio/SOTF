@@ -233,73 +233,71 @@ def crafting():
         save_manager.save_data()
         print("Recipes:\nRope - Vines\nHandle - 2 sticks\nGlass Spear - Handle, Rope, Glass\nWooden Shield - Wood, Handle\nMetal Spear - Handle, Rope, Metal Scrap\nMetal Shield - Metal Scrap, Handle\n")
         player = input("What would you like to craft?\n1 - Rope\n2 - Handle\n3 - Glass Spear\n4 - Wooden Shield\n5 - Metal Spear\n6- Metal Shield\n")
-        if(player == "1"):
-            if(inventory.contains_item("vines")):
-                inventory.remove_item("vines")
-                inventory.add_item("rope")
-                print("Rope added to inventory")
-        if(player == "2"):
-            if(inventory.contains_item("stick", 2)):
-                handle_craft += 2
-            
-            if(handle_craft == 2):
-                inventory.remove_item("stick", 2)
-                inventory.add_item("handle")
-                print("Handle added to inventory")
-                handle_craft = 0
-        if(player == "3"):
-            if(inventory.contains_item("glass")):
-                gspear_craft += 1
-            if(inventory.contains_item("rope")):
-                gspear_craft += 1
-            if(inventory.contains_item("handle")):
-                gspear_craft += 1
-            if(gspear_craft == 3):
-                inventory.remove_item("glass")
-                inventory.remove_item("handle")
-                inventory.remove_item("rope")
-                inventory.add_item("glass spear")
-                print("Glass Spear added to inventory")
-                gspear_craft = 0
-        if(player == "4"):
-            if(inventory.contains_item("wood")):
-                wshield_craft += 1
-            if(inventory.contains_item("handle")):
-                wshield_craft += 1
-            if(wshield_craft == 2):
-                inventory.remove_item("wood")
-                inventory.remove_item("handle")
-                inventory.add_item("wooden shield")
-                print("Wooden Shield added to inventory")
-                wshield_craft = 0
-        if(player == "5"):
-            if(inventory.contains_item("rope")):
-                mspear_craft += 1
-            if(inventory.contains_item("handle")):
-                mspear_craft += 1
-            if(inventory.contains_item("metal scrap")):
-                mspear_craft += 1
-            if(mspear_craft == 3):
-                inventory.remove_item("rope")
-                inventory.remove_item("handle")
-                inventory.remove_item("metal scrap")
-                inventory.add_item("metal spear")
-                
-                inventory.remove("glass spear")
-                print("Metal Spear added to inventory")
-                mspear_craft = 0
-        if(player == "6"):
-            if(inventory.contains_item("metal scrap")):
-                mshield_craft += 1
-            if(inventory.contains_item("handle")):
-                mshield_craft += 1
-            if(mshield_craft == 2):
-                inventory.remove_item("handle")
-                inventory.remove_item("metal scrap")
-                inventory.add_item("metal shield")
-                inventory.remove_item("wood shield")
-                print("Metal Shield added to inventory")
-                mshield_craft = 0
+        if(player == "1"): pass
+            # if(inventory.contains_item("vines")):
+            #     inventory.remove_item("vines")
+            #     inventory.add_item("rope")
+            #     print("Rope added to inventory")
+        if(player == "2"): pass
+            # if(inventory.contains_item("stick", 2)):
+            #     handle_craft += 2
+            # if(handle_craft == 2):
+            #     inventory.remove_item("stick", 2)
+            #     inventory.add_item("handle")
+            #     print("Handle added to inventory")
+            #     handle_craft = 0
+        if(player == "3"): pass
+            # if(inventory.contains_item("glass")):
+            #     gspear_craft += 1
+            # if(inventory.contains_item("rope")):
+            #     gspear_craft += 1
+            # if(inventory.contains_item("handle")):
+            #     gspear_craft += 1
+            # if(gspear_craft == 3):
+            #     inventory.remove_item("glass")
+            #     inventory.remove_item("handle")
+            #     inventory.remove_item("rope")
+            #     inventory.add_item("glass spear")
+            #     print("Glass Spear added to inventory")
+            #     gspear_craft = 0
+        if(player == "4"):  pass
+            # if(inventory.contains_item("wood")):
+            #     wshield_craft += 1
+            # if(inventory.contains_item("handle")):
+            #     wshield_craft += 1
+            # if(wshield_craft == 2):
+            #     inventory.remove_item("wood")
+            #     inventory.remove_item("handle")
+            #     inventory.add_item("wooden shield")
+            #     print("Wooden Shield added to inventory")
+            #     wshield_craft = 0
+        if(player == "5"): pass
+            # if(inventory.contains_item("rope")):
+            #     mspear_craft += 1
+            # if(inventory.contains_item("handle")):
+            #     mspear_craft += 1
+            # if(inventory.contains_item("metal scrap")):
+            #     mspear_craft += 1
+            # if(mspear_craft == 3):
+            #     inventory.remove_item("rope")
+            #     inventory.remove_item("handle")
+            #     inventory.remove_item("metal scrap")
+            #     inventory.add_item("metal spear")
+            #     inventory.remove("glass spear")
+            #     print("Metal Spear added to inventory")
+            #     mspear_craft = 0
+        if(player == "6"): pass
+            # if(inventory.contains_item("metal scrap")):
+            #     mshield_craft += 1
+            # if(inventory.contains_item("handle")):
+            #     mshield_craft += 1
+            # if(mshield_craft == 2):
+            #     inventory.remove_item("handle")
+            #     inventory.remove_item("metal scrap")
+            #     inventory.add_item("metal shield")
+            #     inventory.remove_item("wood shield")
+            #     print("Metal Shield added to inventory")
+            #     mshield_craft = 0
     equipment()
     choose_poi()
 
