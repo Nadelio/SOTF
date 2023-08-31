@@ -9,6 +9,7 @@ import clear_screen
 import save_manager
 import input_utils
 import inventory
+import constructor_test
 #probability
 hit_chance = ""
 
@@ -126,12 +127,7 @@ def search_forest():
 
 #randomizes mob stats
 def rand_mob_stats():
-    global mob_hp
-    global mob_dmg
-    global mob_armor
-    mob_hp = random.randrange(4)+1
-    mob_dmg = random.randrange(1)+1
-    mob_armor = random.randrange(1)
+    mob = constructor_test.Mob()
 
 #enemy probability to spawn code/fight start code
 def mob_spawn():
