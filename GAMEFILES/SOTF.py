@@ -4,7 +4,7 @@
 import random
 import sys
 import time
-from GAMEFILES.crafting import crafting_attempt
+from crafting import crafting_attempt
 import clear_screen
 import save_manager
 import input_utils
