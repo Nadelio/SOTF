@@ -46,7 +46,7 @@ def choose_poi():
         case "city":
             enter_city()
         case "forest":
-            enter_forest
+            enter_forest()
         case "inv":
             invcheck()
         case "inventory":
