@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Survival of the Fittest Text Game Repository
 
 MAKE SURE YOU HAVE THE LATEST VERSION OF PYTHON DOWNLOADED BEFORE PLAYING
