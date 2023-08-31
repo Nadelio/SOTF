@@ -4,18 +4,18 @@
 import random
 import sys
 import time
-import cls
-import json
-
+import clear_screen
+import save_manager
+import input_utils
+import inventory
 #probability
 hit_chance = ""
-
 
 #player input
 player = ""
 
 #player inventory
-inv = []
+inventory = inventory.Inventory()
 
 #player and enemy data
 player_hp = 10
@@ -37,69 +37,68 @@ mshield_craft = 0
 
 #inventory command
 def invcheck():
-    cls.cls()
-    for item in inv:
+    clear_screen.main()
+    for item in inventory.items:
         print(item)
     choose_poi()
 
 
 #main menu/startup "move" command
 def choose_poi():
-    cls.cls()
+    clear_screen.main()
     equipment()
     player = input('Type "city" to go to the City\nType "forest" to go to the Forest\nType "inv" to check your inventory\nType "craft" to craft an item\n')
-    if(player == "city"):
-        enter_city()
-    if(player == "forest"):
-        enter_forest()
-    if(player == "inv"):
-        invcheck()
-    if(player == "craft"):
-        crafting()
-    if(player == "stop"): 
-        sys.exit()
+    
+    match player:
+        case "city":
+            enter_city()
+        case "forest":
+            enter_forest
+        case "inv":
+            invcheck()
+        case "inventory":
+            invcheck()
+        case "craft":
+            crafting()
+        case "stop":
+            sys.exit()
 
 
 #runs when entering the city
 def enter_city():
-    cls.cls()
+    clear_screen.main()
     print("Entered City")
     player = input("Do you want to search the city?\n")
-    if(player.lower().strip() in ["y", "yes"]):
+    
+    if (input_utils.yes_no(player)):
         search_city()
-    if(player.lower().strip() in ["n", "no"]):
+    else:
         choose_poi()
 
 
 #runs when entering the forest
 def enter_forest():
-    cls.cls()
+    clear_screen.main()
     print("Entered Forest")
     player = input("Do you want to search the forest?\n")
-    if(player.lower().strip() in ["y", "yes"]):
+    if (input_utils.yes_no(player)):
         search_forest()
-    if(player.lower().strip() in ["n", "no"]):
+    else:
         choose_poi()
 
 
 #runs when searching city
 def search_city():
-    cls.cls()
+    clear_screen.main()
     hit_chance = random.randrange(3)
     if(hit_chance == 1):
-        save()
-        inv.append("stone")
-        close_save()
+        inventory.add_item("Stone")
         print("Stone added to inventory")
     elif(hit_chance == 2):
-        save()
-        inv.append("glass")
-        close_save()
+        inventory.add_item("Glass")
         print("Glass added to inventory")
     elif(hit_chance == 3):
-        save()
-        inv.append("metal scrap")
-        close_save()
+        inventory.add_item("Metal Scrap")
         print("Metal scrap added to inventory")
     else:
         print("Nothing found")
@@ -113,22 +112,16 @@ def search_city():
 
 #runs when searching forest
 def search_forest():
-    cls.cls()
+    clear_screen.main()
     hit_chance = random.randrange(3)
     if(hit_chance == 1):
-        save()
-        inv.append("wood")
-        close_save()
+        inventory.add_item("Wood")
         print("Wood added to inventory")
     elif(hit_chance == 2):
-        save()
-        inv.append("stick")
-        close_save()
+        inventory.add_item("Stick")
         print("Stick added to inventory")
     elif(hit_chance == 3):
-        save()
-        inv.append("vines")
-        close_save()
+        inventory.add_item("Vines")
         print("Vines added to inventory")
     else:
         print("Nothing found")
@@ -187,9 +180,7 @@ def fighting():
             if(player.lower().strip() in ["y", "yes"]):
                 player_hp = 10
                 mob_hp = 5
-                save()
-                inv.clear()
-                close_save()
+                inventory.clear()
                 run()
             else:
                 sys.exit()
@@ -230,8 +221,8 @@ def player_atk():
 
 #crafting code (pain in the ass to write)
 def crafting():
-    cls.cls()
-    if(inv == []):
+    clear_screen.main()
+    if(inventory.is_empty()):
         pass
     else:
         global handle_craft
@@ -239,106 +230,98 @@ def crafting():
         global wshield_craft
         global mspear_craft
         global mshield_craft
-        save()
+        save_manager.save_data()
         print("Recipes:\nRope - Vines\nHandle - 2 sticks\nGlass Spear - Handle, Rope, Glass\nWooden Shield - Wood, Handle\nMetal Spear - Handle, Rope, Metal Scrap\nMetal Shield - Metal Scrap, Handle\n")
         player = input("What would you like to craft?\n1 - Rope\n2 - Handle\n3 - Glass Spear\n4 - Wooden Shield\n5 - Metal Spear\n6- Metal Shield\n")
         if(player == "1"):
-            if("vines" in inv):
-                inv.remove("vines")
-                inv.append("rope")
+            if(inventory.contains_item("vines")):
+                inventory.remove_item("vines")
+                inventory.add_item("rope")
                 print("Rope added to inventory")
         if(player == "2"):
-            if("stick" in inv):
-                handle_craft += 1
-            if("stick" in inv):
-                handle_craft += 1
+            if(inventory.contains_item("stick", 2)):
+                handle_craft += 2
+            
             if(handle_craft == 2):
-                inv.remove("stick")
-                inv.remove("stick")
-                inv.append("handle")
+                inventory.remove_item("stick", 2)
+                inventory.add_item("handle")
                 print("Handle added to inventory")
                 handle_craft = 0
         if(player == "3"):
-            if("glass" in inv):
+            if(inventory.contains_item("glass")):
                 gspear_craft += 1
-            if("rope" in inv):
+            if(inventory.contains_item("rope")):
                 gspear_craft += 1
-            if("handle" in inv):
+            if(inventory.contains_item("handle")):
                 gspear_craft += 1
             if(gspear_craft == 3):
-                inv.remove("glass")
-                inv.remove("rope")
-                inv.remove("handle")
-                inv.append("glass spear")
+                inventory.remove_item("glass")
+                inventory.remove_item("handle")
+                inventory.remove_item("rope")
+                inventory.add_item("glass spear")
                 print("Glass Spear added to inventory")
                 gspear_craft = 0
         if(player == "4"):
-            if("wood" in inv):
+            if(inventory.contains_item("wood")):
                 wshield_craft += 1
-            if("handle" in inv):
+            if(inventory.contains_item("handle")):
                 wshield_craft += 1
             if(wshield_craft == 2):
-                inv.remove("wood")
-                inv.remove("handle")
-                inv.append("wooden shield")
+                inventory.remove_item("wood")
+                inventory.remove_item("handle")
+                inventory.add_item("wooden shield")
                 print("Wooden Shield added to inventory")
                 wshield_craft = 0
         if(player == "5"):
-            if("rope" in inv):
+            if(inventory.contains_item("rope")):
                 mspear_craft += 1
-            if("handle" in inv):
+            if(inventory.contains_item("handle")):
                 mspear_craft += 1
-            if("metal scrap" in inv):
+            if(inventory.contains_item("metal scrap")):
                 mspear_craft += 1
             if(mspear_craft == 3):
-                inv.remove("rope")
-                inv.remove("handle")
-                inv.remove("metal scrap")
-                inv.append("metal spear")
-                if("glass spear" in inv and mspear_craft == 3):
-                    inv.remove("glass spear")
+                inventory.remove_item("rope")
+                inventory.remove_item("handle")
+                inventory.remove_item("metal scrap")
+                inventory.add_item("metal spear")
+                
+                inventory.remove("glass spear")
                 print("Metal Spear added to inventory")
                 mspear_craft = 0
         if(player == "6"):
-            if("metal scrap" in inv):
+            if(inventory.contains_item("metal scrap")):
                 mshield_craft += 1
-            if("handle" in inv):
+            if(inventory.contains_item("handle")):
                 mshield_craft += 1
             if(mshield_craft == 2):
-                inv.remove("handle")
-                inv.remove("metal scrap")
-                inv.append("metal shield")
-                if("wood shield" in inv and mshield_craft == 2):
-                    inv.remove("wood shield")
+                inventory.remove_item("handle")
+                inventory.remove_item("metal scrap")
+                inventory.add_item("metal shield")
+                inventory.remove_item("wood shield")
                 print("Metal Shield added to inventory")
                 mshield_craft = 0
-        close_save()
     equipment()
     choose_poi()
 
 
 #dev console commands (password protect)
 def dev_console():
-    cls.cls()
+    clear_screen.main()
     equipment()
     player = input("Correct password.\nCommands enabled\nType 'add' to add an item to the inventory\nType 'stat' to print player statistics like damage or armor\nType 'clear' to clear inventory\nType 'back' to go back to run menu\n")
     if(player == "add"):
         player = input("DEV_ADD_CMD\n")
-        save()
-        inv.append(player)
-        close_save()
+        inventory.add_item(player)
         dev_console()
     elif(player == "clear"):
-        save()
-        inv.clear()
-        close_save()
+        inventory.clear()
         dev_console()
     elif(player == "stat"):
         print("Player Health: ",player_hp)
         print("Player Damage: ",player_dmg)
         print("Armor: ", armor)
         print("Weapon Damage: ", weapon_dmg)
-        print("Inventory: ", inv)
+        print("Inventory: ", inventory.items)
         dev_console()
     elif(player == "back"):
         run()
@@ -350,9 +333,9 @@ def equipment():
     global armor
     
     #armor and shields
-    if("metal shield" in inv):
+    if(inventory.contains_item("metal shield")):
         armor = 2
-    elif("wood shield" in inv):
+    elif(inventory.contains_item("wood shield")):
         armor = 1
     else:
         armor = 0
@@ -360,9 +343,9 @@ def equipment():
 
 
     #weapons
-    if("metal spear" in inv):
+    if(inventory.contains_item("metal spear")):
         weapon_dmg = 2
-    elif("glass spear" in inv):
+    elif(inventory.contains_item("wood spear")):
         weapon_dmg = 1
     else:
         weapon_dmg = 0
@@ -370,21 +353,12 @@ def equipment():
     #a place for equipment in the future (ex: fishing rod, pickaxe, axe, etc)
 
 
-#save functions
-def save():
-    filename = 'Save.json'
-    with open(filename, 'r') as f:
-        data = json.load(f)
-        inv = data #<--- replace 'inv' value
 
-def close_save():
-    with open('Save.json', 'w') as f:
-        json.dump(inv, f, indent=4)
 
 
 #startup code
 def run():
-    player = input('Type "inv" to check your inventory\nType "move" to choose a place to go\nType "craft" to open the crafting options\nType "stop" to stop the program\n')
+    player = input('Type "inv" (or "inventory") to check your inventory\nType "move" to choose a place to go\nType "craft" to open the crafting options\nType "stop" to stop the program\n')
     if(player == "inv"):
         invcheck()
     elif(player == "move"):
