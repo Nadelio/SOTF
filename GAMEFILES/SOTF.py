@@ -4,7 +4,7 @@
 import random
 import sys
 import time
-import cls
+import GAMEFILES.cls as cls
 import json
 
 
