@@ -1,5 +1,13 @@
 import inventory
-recipes_blueprints = {"metal spear":["rope","handle","metal scrap"], "rope":["vines"], "handle":["stick","stick"]} # finish adding the rest of the recipes please
+recipes_blueprints = {
+    "metal spear":["rope","handle","metal scrap"], 
+    "rope":["vines"], 
+    "handle":["stick","stick"], 
+    "glass spear":["handle","rope","glass"], 
+    "wooden shield":["wood","handle"], 
+    "metal shield":["metal scrap", "handle"], 
+    #add next recipe here "<item_name>":["<material_1>","<material_2>", etc...]
+    }
 
 
 

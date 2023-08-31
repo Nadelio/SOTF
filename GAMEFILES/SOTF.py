@@ -4,11 +4,11 @@
 import random
 import sys
 import time
+from GAMEFILES.crafting import crafting_attempt
 import clear_screen
 import save_manager
 import input_utils
 import inventory
-import crafting
 #probability
 hit_chance = ""
 
@@ -235,63 +235,23 @@ def crafting():
         print("Recipes:\nRope - Vines\nHandle - 2 sticks\nGlass Spear - Handle, Rope, Glass\nWooden Shield - Wood, Handle\nMetal Spear - Handle, Rope, Metal Scrap\nMetal Shield - Metal Scrap, Handle\n")
         player = input("What would you like to craft?\n1 - Rope\n2 - Handle\n3 - Glass Spear\n4 - Wooden Shield\n5 - Metal Spear\n6- Metal Shield\n")
         if(player == "1"):
-            crafting.crafting_attempt("rope")
+            crafting_attempt("rope")
             # 1 vine = 1 rope
         if(player == "2"):
-            crafting.crafting_attempt("handle")
+            crafting_attempt("handle")
             # 2 stick = 1 handle
-        if(player == "3"): pass
-            # if(inventory.contains_item("glass")):
-            #     gspear_craft += 1
-            # if(inventory.contains_item("rope")):
-            #     gspear_craft += 1
-            # if(inventory.contains_item("handle")):
-            #     gspear_craft += 1
-            # if(gspear_craft == 3):
-            #     inventory.remove_item("glass")
-            #     inventory.remove_item("handle")
-            #     inventory.remove_item("rope")
-            #     inventory.add_item("glass spear")
-            #     print("Glass Spear added to inventory")
-            #     gspear_craft = 0
-        if(player == "4"):  pass
-            # if(inventory.contains_item("wood")):
-            #     wshield_craft += 1
-            # if(inventory.contains_item("handle")):
-            #     wshield_craft += 1
-            # if(wshield_craft == 2):
-            #     inventory.remove_item("wood")
-            #     inventory.remove_item("handle")
-            #     inventory.add_item("wooden shield")
-            #     print("Wooden Shield added to inventory")
-            #     wshield_craft = 0
-        if(player == "5"): pass
-            # if(inventory.contains_item("rope")):
-            #     mspear_craft += 1
-            # if(inventory.contains_item("handle")):
-            #     mspear_craft += 1
-            # if(inventory.contains_item("metal scrap")):
-            #     mspear_craft += 1
-            # if(mspear_craft == 3):
-            #     inventory.remove_item("rope")
-            #     inventory.remove_item("handle")
-            #     inventory.remove_item("metal scrap")
-            #     inventory.add_item("metal spear")
-            #     inventory.remove("glass spear")
-            #     print("Metal Spear added to inventory")
-            #     mspear_craft = 0
-        if(player == "6"): pass
-            # if(inventory.contains_item("metal scrap")):
-            #     mshield_craft += 1
-            # if(inventory.contains_item("handle")):
-            #     mshield_craft += 1
-            # if(mshield_craft == 2):
-            #     inventory.remove_item("handle")
-            #     inventory.remove_item("metal scrap")
-            #     inventory.add_item("metal shield")
-            #     inventory.remove_item("wood shield")
-            #     print("Metal Shield added to inventory")
-            #     mshield_craft = 0
+        if(player == "3"): 
+            crafting_attempt("glass spear")
+            # 1 handle, 1 rope, 1 glass = 1 glass spear
+        if(player == "4"):
+            crafting_attempt("wooden shield")
+            # 1 wood, 1 handle = 1 wooden shield
+        if(player == "5"):
+            crafting_attempt("metal spear")
+            # 1 handlem 1 rope, 1 metal scrap = 1 metal spear
+        if(player == "6"):
+            crafting_attempt("metal shield")
+            # 1 metal scrap, 1 handle = 1 metal shield
     equipment()
     choose_poi()
 
