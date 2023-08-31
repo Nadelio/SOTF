@@ -1,14 +1,16 @@
 import inventory
-recipes_blueprints = {("metal spear"):("rope","handle","metal scrap")}
+recipes_blueprints = {("metal spear"):("rope","handle","metal scrap")} # finish adding the rest of the recipes please
 
-attempt = 0
+attempt = 0 
 
 inv = inventory.Inventory()
+'''
 inv.add_item("rope")
 inv.add_item("rope")
 inv.add_item("handle")
 inv.add_item("metal scrap")
-
+'''
+#^^^test code
 
 def crafting_attempt():
     for required_item in recipes_blueprints["metal spear"]:
