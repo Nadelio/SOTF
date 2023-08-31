@@ -211,7 +211,7 @@ def player_atk():
             print("You failed to escape!")
 
 
-#crafting code (pain in the ass to write)
+#crafting code
 def crafting():
     clear_screen.main()
     if(inventory.is_empty()):
