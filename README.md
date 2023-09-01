@@ -6,11 +6,11 @@ MAKE SURE YOU HAVE THE LATEST VERSION OF PYTHON DOWNLOADED BEFORE PLAYING
 
 IF YOU HAVE DOWNLOADED PYTHON 3.11 FROM MICROSOFT STORE EXPECT FREQUENT CRASHES, IT IS RECOMMENDED THAT YOU DOWNLOAD PYTHON 3.11 FROM https://python.org AS IT DOES NOT HAVE THIS ISSUE, VISUAL STUDIO'S TERMINAL ALSO WORKS
 #
-Version 2.3.0
+Version 2.4.0
 
-Changelog -> Save System, Randomized Enemy Stats
+Changelog -> Massively improved code stability, improved code readability
 #
-Next big release -> 2.4.0
+Next big release -> 2.5.0
 
 Planned features -> Traits, Research Tree
 #
