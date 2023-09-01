@@ -63,9 +63,10 @@ def enter_city():
     clear_screen.main()
     print("Entered City")
     player = input("Do you want to search the city?\n")
-    if(player.lower().strip() in ["y", "yes"]):
+    
+    if (input_utils.yes_no(player)):
         search_city()
-    if(player.lower().strip() in ["n", "no"]):
+    else:
         choose_poi()
 
 
@@ -74,9 +75,9 @@ def enter_forest():
     clear_screen.main()
     print("Entered Forest")
     player = input("Do you want to search the forest?\n")
-    if(player.lower().strip() in ["y", "yes"]):
+    if (input_utils.yes_no(player)):
         search_forest()
-    if(player.lower().strip() in ["n", "no"]):
+    else:
         choose_poi()
 
 
