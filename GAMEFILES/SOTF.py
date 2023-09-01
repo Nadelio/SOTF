@@ -294,18 +294,21 @@ def equipment():
 #startup code
 def run():
     player = input('Type "inv" (or "inventory") to check your inventory\nType "move" to choose a place to go\nType "craft" to open the crafting options\nType "stop" to stop the program\n')
-    if(player == "inv"):
-        invcheck()
-    elif(player == "move"):
-        choose_poi()
-    elif(player == "craft"):
-        crafting()
-    elif(player == "stop"): 
-        sys.exit()
-    elif(player =="dev"):
-        player = input("Dev Console Started\nPlease enter password: ")
-        if(player == "nadelio"):
-            dev_console()
+    match player:
+        case "move":
+            choose_poi()
+        case "inv":
+            invcheck()
+        case "inventory":
+            invcheck()
+        case "craft":
+            crafting()
+        case "stop":
+            sys.exit()
+        case "dev":
+            player = input("Dev Console Started\nPlease enter password: ")
+            if(player == "nadelio"):
+                dev_console()
 
 
 #startup
