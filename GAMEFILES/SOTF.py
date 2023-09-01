@@ -13,11 +13,12 @@ import constructor_test
 #probability
 hit_chance = ""
 
+
 #player input
 player = ""
 
 #player inventory
-inventory = inventory.Inventory()
+inv = []
 
 #player and enemy data
 player_hp = 10
@@ -62,10 +63,9 @@ def enter_city():
     clear_screen.main()
     print("Entered City")
     player = input("Do you want to search the city?\n")
-    
-    if (input_utils.yes_no(player)):
+    if(player.lower().strip() in ["y", "yes"]):
         search_city()
-    else:
+    if(player.lower().strip() in ["n", "no"]):
         choose_poi()
 
 
@@ -74,9 +74,9 @@ def enter_forest():
     clear_screen.main()
     print("Entered Forest")
     player = input("Do you want to search the forest?\n")
-    if (input_utils.yes_no(player)):
+    if(player.lower().strip() in ["y", "yes"]):
         search_forest()
-    else:
+    if(player.lower().strip() in ["n", "no"]):
         choose_poi()
 
 
@@ -268,9 +268,9 @@ def equipment():
     global armor
     
     #armor and shields
-    if(inventory.contains_item("metal shield")):
+    if("metal shield" in inv):
         armor = 2
-    elif(inventory.contains_item("wood shield")):
+    elif("wood shield" in inv):
         armor = 1
     else:
         armor = 0
@@ -278,9 +278,9 @@ def equipment():
 
 
     #weapons
-    if(inventory.contains_item("metal spear")):
+    if("metal spear" in inv):
         weapon_dmg = 2
-    elif(inventory.contains_item("wood spear")):
+    elif("glass spear" in inv):
         weapon_dmg = 1
     else:
         weapon_dmg = 0
