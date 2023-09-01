@@ -18,7 +18,7 @@ hit_chance = ""
 player = ""
 
 #player inventory
-inv = []
+inv = inventory.Inventory()
 
 #player and enemy data
 player_hp = 10
@@ -32,7 +32,7 @@ weapon_dmg = 0
 #inventory command
 def invcheck():
     clear_screen.main()
-    for item in inventory.items:
+    for item in inv.items:
         print(item)
     choose_poi()
 
@@ -86,13 +86,13 @@ def search_city():
     clear_screen.main()
     hit_chance = random.randrange(3)
     if(hit_chance == 1):
-        inventory.add_item("Stone")
+        inv.add_item("Stone")
         print("Stone added to inventory")
     elif(hit_chance == 2):
-        inventory.add_item("Glass")
+        inv.add_item("Glass")
         print("Glass added to inventory")
     elif(hit_chance == 3):
-        inventory.add_item("Metal Scrap")
+        inv.add_item("Metal Scrap")
         print("Metal scrap added to inventory")
     else:
         print("Nothing found")
@@ -109,13 +109,13 @@ def search_forest():
     clear_screen.main()
     hit_chance = random.randrange(3)
     if(hit_chance == 1):
-        inventory.add_item("Wood")
+        inv.add_item("Wood")
         print("Wood added to inventory")
     elif(hit_chance == 2):
-        inventory.add_item("Stick")
+        inv.add_item("Stick")
         print("Stick added to inventory")
     elif(hit_chance == 3):
-        inventory.add_item("Vines")
+        inv.add_item("Vines")
         print("Vines added to inventory")
     else:
         print("Nothing found")
@@ -170,7 +170,7 @@ def fighting():
             if(player.lower().strip() in ["y", "yes"]):
                 player_hp = 10
                 mob_hp = 5
-                inventory.clear()
+                inv.clear()
                 run()
             else:
                 sys.exit()
@@ -212,7 +212,7 @@ def player_atk():
 #crafting code
 def crafting():
     clear_screen.main()
-    if(inventory.is_empty()):
+    if(inv.is_empty()):
         pass
     else:
         save_manager.save_data()
@@ -247,17 +247,17 @@ def dev_console():
     player = input("Correct password.\nCommands enabled\nType 'add' to add an item to the inventory\nType 'stat' to print player statistics like damage or armor\nType 'clear' to clear inventory\nType 'back' to go back to run menu\n")
     if(player == "add"):
         player = input("DEV_ADD_CMD\n")
-        inventory.add_item(player)
+        inv.add_item(player)
         dev_console()
     elif(player == "clear"):
-        inventory.clear()
+        inv.clear()
         dev_console()
     elif(player == "stat"):
         print("Player Health: ",player_hp)
         print("Player Damage: ",player_dmg)
         print("Armor: ", armor)
         print("Weapon Damage: ", weapon_dmg)
-        print("Inventory: ", inventory.items)
+        print("Inventory: ", inv.items)
         dev_console()
     elif(player == "back"):
         run()
@@ -269,9 +269,9 @@ def equipment():
     global armor
     
     #armor and shields
-    if("metal shield" in inv):
+    if("metal shield" in inv.items):
         armor = 2
-    elif("wood shield" in inv):
+    elif("wood shield" in inv.items):
         armor = 1
     else:
         armor = 0
@@ -279,9 +279,9 @@ def equipment():
 
 
     #weapons
-    if("metal spear" in inv):
+    if("metal spear" in inv.items):
         weapon_dmg = 2
-    elif("glass spear" in inv):
+    elif("glass spear" in inv.items):
         weapon_dmg = 1
     else:
         weapon_dmg = 0
