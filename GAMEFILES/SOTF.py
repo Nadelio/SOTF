@@ -41,7 +41,7 @@ def invcheck():
 def choose_poi():
     clear_screen.main()
     equipment()
-    player = input('Type "city" to go to the City\nType "forest" to go to the Forest\nType "inv" to check your inventory\nType "craft" to craft an item\n')
+    player = input('Type "city" to go to the City\nType "forest" to go to the Forest\nType "inv" to check your inventory\nType "craft" to craft an item\n').lower().strip()
     
     match player:
         case "city":
@@ -59,6 +59,7 @@ def choose_poi():
 
 
 #runs when entering the city
+# THIS CAN BE REPLACED USING PLAYER ACTIONS I CREATED
 def enter_city():
     clear_screen.main()
     print("Entered City")
