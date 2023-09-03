@@ -45,9 +45,9 @@ def choose_poi():
     
     match player:
         case "city":
-            enter_city()
+            search_city()
         case "forest":
-            enter_forest()
+            search_forest()
         case "inv":
             invcheck()
         case "inventory":
@@ -56,30 +56,6 @@ def choose_poi():
             crafting()
         case "stop":
             sys.exit()
-
-
-#runs when entering the city
-# THIS CAN BE REPLACED USING PLAYER ACTIONS I CREATED
-def enter_city():
-    clear_screen.main()
-    print("Entered City")
-    player = input("Do you want to search the city?\n")
-    
-    if (input_utils.yes_no(player)):
-        search_city()
-    else:
-        choose_poi()
-
-
-#runs when entering the forest
-def enter_forest():
-    clear_screen.main()
-    print("Entered Forest")
-    player = input("Do you want to search the forest?\n")
-    if (input_utils.yes_no(player)):
-        search_forest()
-    else:
-        choose_poi()
 
 
 #runs when searching city
