@@ -29,6 +29,9 @@ mob_armor = 0
 player_dmg = 2
 weapon_dmg = 0
 
+#poi mob value
+poi_value = 0
+
 #inventory command
 def invcheck():
     clear_screen.main()
@@ -60,6 +63,8 @@ def choose_poi():
 
 #runs when searching city
 def search_city():
+    global poi_value
+    poi_value = 1
     clear_screen.main()
     hit_chance = random.randrange(3)
     if(hit_chance == 1):
@@ -83,6 +88,8 @@ def search_city():
 
 #runs when searching forest
 def search_forest():
+    global poi_value 
+    poi_value = 2
     clear_screen.main()
     hit_chance = random.randrange(3)
     if(hit_chance == 1):
@@ -96,6 +103,28 @@ def search_forest():
         print("Vines added to inventory")
     else:
         print("Nothing found")
+    hit_chance = random.randrange(2)
+    if(hit_chance >= 1):
+        mob_spawn()
+    else:
+        print("No enemies")
+        choose_poi()
+
+#runs when searching catacombs (NEW LOCATION)
+def search_catacombs():
+    global poi_value
+    poi_value = random.randrange(3,4)
+    clear_screen.main()
+    hit_chance = random.randrange(3)
+    match hit_chance:
+        case 1:
+            inv.add_item("Stone")
+            print("Stone added to inventory")
+        case 2:
+            inv.add_item("Vines")
+            print("Vines added to inventory")
+        case _:
+            print("Nothing found")
     hit_chance = random.randrange(2)
     if(hit_chance >= 1):
         mob_spawn()
