@@ -9,7 +9,7 @@ import clear_screen
 import save_manager
 import input_utils
 import inventory
-import constructor_test
+import enemy_construct
 #probability
 hit_chance = ""
 
@@ -134,7 +134,7 @@ def search_catacombs():
 
 #randomizes mob stats
 def rand_mob_stats():
-    mob = constructor_test.Mob()
+    mob = enemy_construct.main()
     return mob
 
 #enemy probability to spawn code/fight start code
@@ -265,6 +265,8 @@ def dev_console():
         print("Weapon Damage: ", weapon_dmg)
         print("Inventory: ", inv.items)
         dev_console()
+    elif(player == "mob"):
+        mob_spawn()
     elif(player == "back"):
         run()
 

@@ -2,6 +2,7 @@ import random
 
 class Mob:
     def __init__(self):
+        self.mob_tag = "Mob Template"
         self.health = random.randrange(1) + 1
         self.attack = random.randrange(1) + 1
         self.defense = random.randrange(1)
