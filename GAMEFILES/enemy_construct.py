@@ -9,28 +9,28 @@ Mobtypes = ["zombie", "skeleton", "bandit", "animal"]
 #mob classes
 class Zombie:
     def __init__(self):
-        self.mob_tag = "Zombie"
+        self.mob_tag = Mobtypes[0]
         self.health = random.randrange(4)+1
         self.attack = random.randrange(1)+1
         self.defense = 0
 
 class Animal:
     def __init__(self):
-        self.mob_tag = "Animal"
+        self.mob_tag = Mobtypes[1]
         self.health = random.randrange(2)+1
         self.attack = 1
         self.defense = 0
 
 class Bandit:
     def __init__(self):
-        self.mob_tag = "Bandit"
+        self.mob_tag = Mobtypes[2]
         self.health = random.randrange(1)+4
         self.attack = random.randrange(2)+1
         self.defense = 1
 
 class Skeleton:
     def __init__(self):
-        self.mob_tag = "Skeleton"
+        self.mob_tag = Mobtypes[3]
         self.health = random.randrange(1)+1
         self.attack = random.randrange(1)+1
         self.defense = 0
