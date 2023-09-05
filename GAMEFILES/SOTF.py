@@ -111,11 +111,11 @@ def rand_mob_stats():
 #enemy probability to spawn code/fight start code
 def mob_spawn():
     player = input("An enemy has appeared!\nDo you want to fight it?\n")
-    if(player.lower().strip() in ["y", "yes"]):
+    if(input_utils.yes_no(player) == True):
         print("Fight started!")
         mob = rand_mob_stats()
         fighting()
-    elif(player.lower().strip() in ["n", "no"]):
+    elif(input_utils.yes_no(player) == False):
         hit_chance = random.randrange(1)
         if(hit_chance == 1):
             print("You escaped!")
@@ -144,7 +144,7 @@ def fighting():
             player_atk()
         if(player_hp == 0):
             player = input("You died! Wanna try again?\n")
-            if(player.lower().strip() in ["y", "yes"]):
+            if(input_utils.yes_no(player) == True):
                 player_hp = 10
                 mob_hp = 5
                 inv.clear()
