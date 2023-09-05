@@ -46,13 +46,16 @@ def main():
             print(mob.mob_tag)
         case 2:#forest
             mob = Animal()
+            print(mob.mob_tag)
         case 3:#catacombs
             mob = Bandit()
+            print(mob.mob_tag)
         case 4:#catacombs
             mob = Skeleton()
+            print(mob.mob_tag)
         case _:#error
             mob = Mob()
-            print(mob.health)
+            print(mob.mob_tag)
 
 
 if __name__ == "__main__":
