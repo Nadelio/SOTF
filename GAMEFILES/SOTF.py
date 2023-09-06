@@ -112,7 +112,7 @@ def search_forest():
         print("No enemies")
         choose_poi()
 
-#runs when searching catacombs (NEW LOCATION)
+#runs when searching catacombs
 def search_catacombs():
     global poi_value
     poi_value = random.randrange(3,5)
