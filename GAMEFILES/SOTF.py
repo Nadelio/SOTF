@@ -261,11 +261,7 @@ def dev_console():
         inv.clear()
         dev_console()
     elif(player == "stat"):
-        print("Player Health: ",player_hp)
-        print("Player Damage: ",player_dmg)
-        print("Armor: ", armor)
-        print("Weapon Damage: ", weapon_dmg)
-        print("Inventory: ", inv.items)
+        print(f'Player Health: {player_hp}\nPlayer Damage: {player_dmg}\nPlayer Armor: {armor}\nWeapon Damage: {weapon_dmg}\n Inventory: {inv.items}')
         dev_console()
     elif(player == "mob"):
         player = input("Set POI: ")
