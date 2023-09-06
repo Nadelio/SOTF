@@ -48,10 +48,10 @@ def main():
             mob = Animal()
             print(f'Enemy type: {mob.mob_tag}')
         case 3:#catacombs
-            mob = Bandit()
-            print(f'Enemy type: {mob.mob_tag}')
-        case 4:#catacombs
             mob = Skeleton()
+            print(f'Enemy type: {mob.mob_tag}')
+        case 4:#UNUSED
+            mob = Bandit()
             print(f'Enemy type: {mob.mob_tag}')
         case _:#error
             mob = Mob()
