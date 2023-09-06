@@ -322,7 +322,7 @@ def run():
             sys.exit()
         case "dev":
             player = input("Dev Console Started\nPlease enter password: ")
-            if(player == "nadelio"):
+            if(player == "nadelio" or player == "pyrolyzed"):
                 dev_console()
 
 
