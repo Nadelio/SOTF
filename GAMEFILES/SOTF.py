@@ -266,7 +266,7 @@ def dev_console():
         print("Inventory: ", inv.items)
         dev_console()
     elif(player == "mob"):
-        mob_spawn()
+        rand_mob_stats()
         print(f'Mob Health: {mob_hp}')
         print(f'Mob Damage: {mob_dmg}')
         print(f'Mob Armor: {mob_armor}')
