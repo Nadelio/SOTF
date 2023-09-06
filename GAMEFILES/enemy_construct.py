@@ -3,7 +3,7 @@ from constructor_test import Mob
 
 
 #mob type holder
-Mobtypes = ["zombie", "skeleton", "bandit", "animal"]
+Mobtypes = ["Zombie", "Skeleton", "Bandit", "Animal"]
 
 
 #mob classes
@@ -43,19 +43,19 @@ def main():
     match mob_spawn:
         case 1:#city
             mob = Zombie()
-            print(mob.mob_tag)
+            print(f'Enemy type: {mob.mob_tag}')
         case 2:#forest
             mob = Animal()
-            print(mob.mob_tag)
+            print(f'Enemy type: {mob.mob_tag}')
         case 3:#catacombs
             mob = Bandit()
-            print(mob.mob_tag)
+            print(f'Enemy type: {mob.mob_tag}')
         case 4:#catacombs
             mob = Skeleton()
-            print(mob.mob_tag)
+            print(f'Enemy type: {mob.mob_tag}')
         case _:#error
             mob = Mob()
-            print(mob.mob_tag)
+            print(f'Enemy type: {mob.mob_tag}')
 
 
 if __name__ == "__main__":
