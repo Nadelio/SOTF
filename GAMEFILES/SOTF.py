@@ -177,14 +177,12 @@ def fighting():
             player = input("You died! Wanna try again?\n")
             if(input_utils.yes_no(player) == True):
                 player_hp = 10
-                mob_hp = 5
                 inv.clear()
                 run()
             else:
                 sys.exit()
         if(mob_hp <= 0):
             print("You won the fight!")
-            mob_hp = 5
             player_hp = 10
             choose_poi()
 
@@ -269,6 +267,9 @@ def dev_console():
         dev_console()
     elif(player == "mob"):
         mob_spawn()
+        print(f'Mob Health: {mob_hp}')
+        print(f'Mob Damage: {mob_dmg}')
+        print(f'Mob Armor: {mob_armor}')
     elif(player == "back"):
         run()
 
