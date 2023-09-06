@@ -4,7 +4,7 @@ from constructor_test import Mob #at some point lets move Mob default class here
 
 #mob type holder
 Mobtypes = ["Zombie", "Skeleton", "Bandit", "Animal"]
-
+mob_spawn = 0
 
 #mob classes
 class Zombie:
@@ -38,6 +38,7 @@ class Skeleton:
 
 #main
 def main():
+    global mob_spawn
     from SOTF import poi_value
     mob_spawn = poi_value
     match mob_spawn:

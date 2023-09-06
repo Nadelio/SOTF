@@ -136,6 +136,7 @@ def search_catacombs():
 
 #randomizes mob stats
 def rand_mob_stats():
+    global poi_value
     mob = enemy_construct.main()
     return mob
 
