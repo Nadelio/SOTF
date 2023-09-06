@@ -44,13 +44,15 @@ def invcheck():
 def choose_poi():
     clear_screen.main()
     equipment()
-    player = input('Type "city" to go to the City\nType "forest" to go to the Forest\nType "inv" to check your inventory\nType "craft" to craft an item\n').lower().strip()
+    player = input('Type "city" to go to the City\nType "forest" to go to the Forest\nType "catacombs" to go to the Forest\nType "inv" to check your inventory\nType "craft" to craft an item\n').lower().strip()
     
     match player:
         case "city":
             search_city()
         case "forest":
             search_forest()
+        case "catacombs":
+            search_catacombs()
         case "inv":
             invcheck()
         case "inventory":
