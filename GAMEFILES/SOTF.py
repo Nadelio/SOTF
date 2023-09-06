@@ -271,9 +271,7 @@ def dev_console():
         player = input("Set POI: ")
         poi_value = player
         rand_mob_stats()
-        print(f'Mob Health: {mob_hp}')
-        print(f'Mob Damage: {mob_dmg}')
-        print(f'Mob Armor: {mob_armor}')
+        print(f'Mob Health: {mob_hp}\nMob Damage: {mob_dmg}\nMob Armor: {mob_armor}')
         dev_console()
     elif(player == "back"):
         run()
