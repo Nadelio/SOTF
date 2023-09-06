@@ -250,7 +250,7 @@ def crafting():
 def dev_console():
     clear_screen.main()
     equipment()
-    player = input("Correct password.\nCommands enabled\nType 'add' to add an item to the inventory\nType 'stat' to print player statistics like damage or armor\nType 'clear' to clear inventory\nType 'back' to go back to run menu\n")
+    player = input("Correct password.\nCommands enabled\nType 'add' to add an item to the inventory\nType 'stat' to print player statistics like damage or armor\nType 'clear' to clear inventory\nType 'mob' to spawn a mob and choose which mob\nType 'back' to go back to run menu\n")
     if(player == "add"):
         player = input("DEV_ADD_CMD\n")
         inv.add_item(player)
@@ -266,6 +266,8 @@ def dev_console():
         print("Inventory: ", inv.items)
         dev_console()
     elif(player == "mob"):
+        player = input("Set POI")
+        poi_value = player
         rand_mob_stats()
         print(f'Mob Health: {mob_hp}')
         print(f'Mob Damage: {mob_dmg}')
