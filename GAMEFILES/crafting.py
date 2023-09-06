@@ -9,7 +9,12 @@ recipes_blueprints = {
     #add next recipe here "<item_name>":["<material_1>","<material_2>", etc...]
     }
 
+# I'd like to add some new items, bones, gems, stone brick
+# Stone Bricks can be crafted with 2 stones or in the catacombs
+# Bones are collected from catacombs
+# Gems are also collected from catacombs
 
+# If y'all have any more ideas for items or recipes I can use these items in add them as a comment here or send a message in #sotf-collaborators
 
 inv = inventory.Inventory()
 '''
