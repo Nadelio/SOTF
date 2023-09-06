@@ -11,7 +11,7 @@ class Mob:
 
 def main():
     mob = Mob()
-    print(mob.attack)
+    print(mob.damage)
     print(mob.defense)
     print(mob.health)
     
