@@ -115,7 +115,7 @@ def search_forest():
 #runs when searching catacombs
 def search_catacombs():
     global poi_value
-    poi_value = random.randrange(3,5)
+    poi_value = 3
     clear_screen.main()
     hit_chance = random.randrange(3)
     match hit_chance:
