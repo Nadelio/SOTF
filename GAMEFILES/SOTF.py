@@ -274,6 +274,7 @@ def dev_console():
         print(f'Mob Health: {mob_hp}')
         print(f'Mob Damage: {mob_dmg}')
         print(f'Mob Armor: {mob_armor}')
+        dev_console()
     elif(player == "back"):
         run()
 
