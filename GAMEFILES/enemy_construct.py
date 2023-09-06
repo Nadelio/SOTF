@@ -40,22 +40,40 @@ class Skeleton:
 def main():
     global mob_spawn
     from SOTF import poi_value
+    from SOTF import mob_armor
+    from SOTF import mob_hp
+    from SOTF import mob_dmg
     mob_spawn = poi_value
     match mob_spawn:
         case 1:#city
             mob = Zombie()
+            mob_hp = mob.health
+            mob_armor = mob.defense
+            mob_dmg = mob.damage
             print(f'Enemy type: {mob.mob_tag}')
         case 2:#forest
             mob = Animal()
+            mob_hp = mob.health
+            mob_armor = mob.defense
+            mob_dmg = mob.damage
             print(f'Enemy type: {mob.mob_tag}')
         case 3:#catacombs
             mob = Skeleton()
+            mob_hp = mob.health
+            mob_armor = mob.defense
+            mob_dmg = mob.damage
             print(f'Enemy type: {mob.mob_tag}')
         case 4:#UNUSED
             mob = Bandit()
+            mob_hp = mob.health
+            mob_armor = mob.defense
+            mob_dmg = mob.damage
             print(f'Enemy type: {mob.mob_tag}')
         case _:#error
             mob = Mob()
+            mob_hp = mob.health
+            mob_armor = mob.defense
+            mob_dmg = mob.damage
             print(f'Enemy type: {mob.mob_tag}')
 
 
