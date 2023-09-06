@@ -1,11 +1,11 @@
 import inventory
 recipes_blueprints = {
-    "metal spear":["rope","handle","metal scrap"], 
-    "rope":["vines"], 
-    "handle":["stick","stick"], 
-    "glass spear":["handle","rope","glass"], 
-    "wooden shield":["wood","handle"], 
-    "metal shield":["metal scrap", "handle"], 
+    "Metal Spear":["Rope","Handle","Metal Scrap"], 
+    "Rope":["Vines"], 
+    "Handle":["Stick","Stick"], 
+    "Glass Spear":["Handle","Rope","Glass"], 
+    "Wooden Shield":["Wood","Handle"], 
+    "Metal Shield":["Metal scrap", "Handle"], 
     #add next recipe here "<item_name>":["<material_1>","<material_2>", etc...]
     }
 
@@ -17,13 +17,7 @@ recipes_blueprints = {
 # If y'all have any more ideas for items or recipes I can use these items in add them as a comment here or send a message in #sotf-collaborators
 
 inv = inventory.Inventory()
-'''
-inv.add_item("rope")
-inv.add_item("rope")
-inv.add_item("handle")
-inv.add_item("metal scrap")
-'''
-#^^^test code
+
 
 def crafting_attempt(input):
     attempt = 0

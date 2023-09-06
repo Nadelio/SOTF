@@ -227,22 +227,22 @@ def crafting():
         print("Recipes:\nRope - Vines\nHandle - 2 sticks\nGlass Spear - Handle, Rope, Glass\nWooden Shield - Wood, Handle\nMetal Spear - Handle, Rope, Metal Scrap\nMetal Shield - Metal Scrap, Handle\n")
         player = input("What would you like to craft?\n1 - Rope\n2 - Handle\n3 - Glass Spear\n4 - Wooden Shield\n5 - Metal Spear\n6- Metal Shield\n")
         if(player == "1"):
-            crafting_attempt("rope")
+            crafting_attempt("Rope")
             # 1 vine = 1 rope
         if(player == "2"):
-            crafting_attempt("handle")
+            crafting_attempt("Handle")
             # 2 stick = 1 handle
         if(player == "3"): 
-            crafting_attempt("glass spear")
+            crafting_attempt("Glass Spear")
             # 1 handle, 1 rope, 1 glass = 1 glass spear
         if(player == "4"):
-            crafting_attempt("wooden shield")
+            crafting_attempt("Wooden Shield")
             # 1 wood, 1 handle = 1 wooden shield
         if(player == "5"):
-            crafting_attempt("metal spear")
+            crafting_attempt("Metal Spear")
             # 1 handlem 1 rope, 1 metal scrap = 1 metal spear
         if(player == "6"):
-            crafting_attempt("metal shield")
+            crafting_attempt("Metal Shield")
             # 1 metal scrap, 1 handle = 1 metal shield
     equipment()
     choose_poi()
@@ -279,9 +279,9 @@ def equipment():
     global armor
     
     #armor and shields
-    if("metal shield" in inv.items):
+    if("Metal Shield" in inv.items):
         armor = 2
-    elif("wood shield" in inv.items):
+    elif("Wood Shield" in inv.items):
         armor = 1
     else:
         armor = 0
@@ -289,9 +289,9 @@ def equipment():
 
 
     #weapons
-    if("metal spear" in inv.items):
+    if("Metal Spear" in inv.items):
         weapon_dmg = 2
-    elif("glass spear" in inv.items):
+    elif("Glass Spear" in inv.items):
         weapon_dmg = 1
     else:
         weapon_dmg = 0
