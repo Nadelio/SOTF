@@ -25,7 +25,7 @@ player_hp = 10
 armor = 0
 player_dmg = 2
 weapon_dmg = 0
-mob = enemy_construct.main(poi_value)
+mob = enemy_construct.main(99999)
 
 #poi mob value
 poi_value = 0
