@@ -262,7 +262,7 @@ def dev_console():
     elif(player == "mob"):
         player = input("Set POI: ")
         poi_value = player
-        rand_mob_stats()
+        mob = enemy_construct.main(poi_value)
         print(f'Mob Health: {mob_hp}\nMob Damage: {mob_dmg}\nMob Armor: {mob_armor}')
         dev_console()
     elif(player == "back"):
