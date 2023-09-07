@@ -134,10 +134,6 @@ def search_catacombs():
         print("No enemies")
         choose_poi()
 
-#randomizes mob stats
-def rand_mob_stats(poi_value):
-    mob = enemy_construct.main(poi_value)
-    return mob
 
 #enemy probability to spawn code/fight start code
 def mob_spawn():
@@ -145,7 +141,7 @@ def mob_spawn():
     player = input("An enemy has appeared!\nDo you want to fight it?\n")
     if(input_utils.yes_no(player) == True):
         print("Fight started!")
-        mob = rand_mob_stats(poi_value)
+        mob = enemy_construct.main(poi_value)
         fighting()
     elif(input_utils.yes_no(player) == False):
         hit_chance = random.randrange(1)
