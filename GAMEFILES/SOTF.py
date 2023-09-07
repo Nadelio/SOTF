@@ -23,11 +23,9 @@ inv = inventory.Inventory()
 #player and enemy data
 player_hp = 10
 armor = 0
-mob_dmg = 0
-mob_hp = 0
-mob_armor = 0
 player_dmg = 2
 weapon_dmg = 0
+mob = enemy_construct.main(poi_value)
 
 #poi mob value
 poi_value = 0
@@ -137,6 +135,7 @@ def search_catacombs():
 
 #enemy probability to spawn code/fight start code
 def mob_spawn():
+    global mob
     global poi_value
     player = input("An enemy has appeared!\nDo you want to fight it?\n")
     if(input_utils.yes_no(player) == True):
@@ -157,18 +156,17 @@ def mob_spawn():
 #fighting code  
 def fighting():
     equipment()
+    global mob
     global player_hp
     global armor
-    global mob_dmg
-    global mob_hp
     global weapon_dmg
-    while(player_hp > 0 or mob_hp > 0):
+    while(player_hp > 0 or mob.health > 0):
         player_hp = player_hp
         hit_chance = random.randrange(4)
         if(hit_chance >= 3):
             print("You've been hit!")
-            player_hp = player_hp - (mob_dmg - armor)
-            print("Player health: ",player_hp)
+            player_hp = player_hp - (mob.damage - armor)
+            print("Player health: ", player_hp)
             player_atk()
         if(player_hp == 0):
             player = input("You died! Wanna try again?\n")
@@ -178,7 +176,7 @@ def fighting():
                 run()
             else:
                 sys.exit()
-        if(mob_hp <= 0):
+        if(mob.health <= 0):
             print("You won the fight!")
             player_hp = 10
             choose_poi()
@@ -187,17 +185,16 @@ def fighting():
 #player attack code/player flee code
 def player_atk():
     equipment()
-    global mob_hp
-    global mob_armor
+    global mob
     global player_dmg
     global player_hp
     global weapon_dmg
     player = input('Type "atk" to attack.\nType "run" to run\n')
     if(player == "atk"):
         hit_chance = random.randrange(3)
-        if(hit_chance > mob_armor):
-            mob_hp = mob_hp - (player_dmg + weapon_dmg)
-            print("Enemy health: ",mob_hp)
+        if(hit_chance > mob.defense):
+            mob.health = mob.health - (player_dmg + weapon_dmg)
+            print("Enemy health: ",mob.health)
         else:
             print("Attack failed!")
             fighting()
