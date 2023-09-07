@@ -1,6 +1,4 @@
 import random
-from constructor_test import Mob #at some point lets move Mob default class here
-
 
 #mob type holder
 Mobtypes = ["Zombie", "Skeleton", "Bandit", "Animal"]
