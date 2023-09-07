@@ -37,19 +37,13 @@ class Skeleton:
 
 
 #main
-def main():
-    global mob_spawn
-    from SOTF import poi_value
-    from SOTF import mob_armor
-    from SOTF import mob_hp
-    from SOTF import mob_dmg
-    mob_spawn = poi_value
+def main(poi):
+  global mob_spawn 
+    mob_spawn = poi
     match mob_spawn:
         case 1:#city
             mob = Zombie()
-            mob_hp = mob.health
-            mob_armor = mob.defense
-            mob_dmg = mob.damage
+            return mob
             print(f'Enemy type: {mob.mob_tag}')
         case 2:#forest
             mob = Animal()
