@@ -16,31 +16,19 @@ class Mob:
 #mob classes
 class Zombie(Mob):
     def __init__(self):
-        super().__init__(mob_tag = Mobtypes[0])
-        super().__init__(health = random.randrange(4)+1)
-        super().__init__(damage = random.randrange(1)+1)
-        super().__init__(defense = 0)
+        super().__init__(mob_tag = Mobtypes[0], health = random.randrange(4)+1, damage = random.randrange(1)+1, defense = 0)
 
 class Animal(Mob):
     def __init__(self):
-        super().__init__(mob_tag = Mobtypes[3])
-        super().__init__(health = random.randrange(2)+1)
-        super().__init__(damage = 1)
-        super().__init__(defense = 0)
+        super().__init__(mob_tag = Mobtypes[3], health = random.randrange(2)+1, damage = 1, defense = 0)
 
 class Bandit(Mob):
     def __init__(self):
-        super().__init__(mob_tag = Mobtypes[2])
-        super().__init__(health = random.randrange(1)+4)
-        super().__init__(damage = random.randrange(2)+1)
-        super().__init__(defense = 1)
+        super().__init__(mob_tag = Mobtypes[2], health = random.randrange(1)+4, damage = random.randrange(2)+1, defense = 1)
 
-class Skeleton:
+class Skeleton(Mob):
     def __init__(self):
-        super().__init__(mob_tag = Mobtypes[1])
-        super().__init__(health = random.randrange(1)+1)
-        super().__init__(damage = random.randrange(1)+1)
-        super().__init__(defense = 0)
+        super().__init__(mob_tag = Mobtypes[1], health = random.randrange(1)+1, damage = random.randrange(1)+1, defense = 0)
 
 
 #main
@@ -48,20 +36,19 @@ def main(poi):
     mob_spawn = poi
     match mob_spawn:
         case 1:#city
-            mob = Zombie(Mobtypes[0], random.randrange(4)+1, random.randrange(1)+1, 0)
+            mob = Zombie()
             print(f'Enemy type: {mob.mob_tag}')
             return mob
-
         case 2:#forest
-            mob = Animal(Mobtypes[3], random.randrange(2)+1, 1, 0)
+            mob = Animal()
             print(f'Enemy type: {mob.mob_tag}')
             return mob
         case 3:#catacombs #
-            mob = Skeleton(Mobtypes[1], random.randrange(1)+1, random.randrange(1)+1, 0)
+            mob = Skeleton()
             print(f'Enemy type: {mob.mob_tag}')
             return mob
         case 4:#UNUSED
-            mob = Bandit(Mobtypes[2], random.randrange(1)+4, random.randrange(2)+1, 1)
+            mob = Bandit()
             print(f'Enemy type: {mob.mob_tag}')
             return mob
         case _:#error

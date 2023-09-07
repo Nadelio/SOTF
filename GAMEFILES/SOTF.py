@@ -261,9 +261,9 @@ def dev_console():
         dev_console()
     elif(player == "mob"):
         player = input("Set POI: ")
-        poi_value = player
+        poi_value = int(player)
         mob = enemy_construct.main(poi_value)
-        print(f'Mob Health: {mob_hp}\nMob Damage: {mob_dmg}\nMob Armor: {mob_armor}')
+        print(f'Mob Health: {mob.health}\nMob Damage: {mob.damage}\nMob Armor: {mob.defense}')
         dev_console()
     elif(player == "back"):
         run()
