@@ -4,71 +4,62 @@ from constructor_test import Mob #at some point lets move Mob default class here
 
 #mob type holder
 Mobtypes = ["Zombie", "Skeleton", "Bandit", "Animal"]
-mob_spawn = 0
 
 #mob classes
-class Zombie:
+class Zombie(Mob):
     def __init__(self):
-        self.mob_tag = Mobtypes[0]
-        self.health = random.randrange(4)+1
-        self.damage = random.randrange(1)+1
-        self.defense = 0
+        super().__init__(mob_tag = Mobtypes[0])
+        super().__init__(health = random.randrange(4)+1)
+        super().__init__(damage = random.randrange(1)+1)
+        super().__init__(defense = 0)
 
-class Animal:
+class Animal(Mob):
     def __init__(self):
-        self.mob_tag = Mobtypes[1]
-        self.health = random.randrange(2)+1
-        self.damage = 1
-        self.defense = 0
+        super().__init__(mob_tag = Mobtypes[1])
+        super().__init__(health = random.randrange(2)+1)
+        super().__init__(damage = 1)
+        super().__init__(defense = 0)
 
-class Bandit:
+class Bandit(Mob):
     def __init__(self):
-        self.mob_tag = Mobtypes[2]
-        self.health = random.randrange(1)+4
-        self.damage = random.randrange(2)+1
-        self.defense = 1
+        super().__init__(mob_tag = Mobtypes[2])
+        super().__init__(health = random.randrange(1)+4)
+        super().__init__(damage = random.randrange(2)+1)
+        super().__init__(defense = 1)
 
 class Skeleton:
     def __init__(self):
-        self.mob_tag = Mobtypes[3]
-        self.health = random.randrange(1)+1
-        self.damage = random.randrange(1)+1
-        self.defense = 0
+        super().__init__(mob_tag = Mobtypes[3])
+        super().__init__(health = random.randrange(1)+1)
+        super().__init__(damage = random.randrange(1)+1)
+        super().__init__(defense = 0)
 
 
 #main
-def main(poi):
-  global mob_spawn 
+def main(poi): 
     mob_spawn = poi
     match mob_spawn:
         case 1:#city
             mob = Zombie()
-            return mob
             print(f'Enemy type: {mob.mob_tag}')
+            return mob
+
         case 2:#forest
             mob = Animal()
-            mob_hp = mob.health
-            mob_armor = mob.defense
-            mob_dmg = mob.damage
             print(f'Enemy type: {mob.mob_tag}')
+            return mob
         case 3:#catacombs
             mob = Skeleton()
-            mob_hp = mob.health
-            mob_armor = mob.defense
-            mob_dmg = mob.damage
             print(f'Enemy type: {mob.mob_tag}')
+            return mob
         case 4:#UNUSED
             mob = Bandit()
-            mob_hp = mob.health
-            mob_armor = mob.defense
-            mob_dmg = mob.damage
             print(f'Enemy type: {mob.mob_tag}')
+            return mob
         case _:#error
             mob = Mob()
-            mob_hp = mob.health
-            mob_armor = mob.defense
-            mob_dmg = mob.damage
             print(f'Enemy type: {mob.mob_tag}')
+            return mob
 
 
 if __name__ == "__main__":
