@@ -10,6 +10,8 @@ import save_manager
 import input_utils
 import inventory
 import enemy_construct
+
+
 #probability
 hit_chance = ""
 
@@ -17,8 +19,10 @@ hit_chance = ""
 #player input
 player = ""
 
+
 #player inventory
 inv = inventory.Inventory()
+
 
 #player and enemy data
 player_hp = 10
@@ -27,8 +31,10 @@ player_dmg = 2
 weapon_dmg = 0
 mob = enemy_construct.main(99999)
 
+
 #poi mob value
 poi_value = 0
+
 
 #inventory command
 def invcheck():
@@ -109,6 +115,7 @@ def search_forest():
     else:
         print("No enemies")
         choose_poi()
+
 
 #runs when searching catacombs
 def search_catacombs():
@@ -280,7 +287,6 @@ def equipment():
         armor = 0
 
 
-
     #weapons
     if("Metal Spear" in inv.items):
         weapon_dmg = 2
@@ -290,9 +296,6 @@ def equipment():
         weapon_dmg = 0
 
     #a place for equipment in the future (ex: fishing rod, pickaxe, axe, etc)
-
-
-
 
 
 #startup code
