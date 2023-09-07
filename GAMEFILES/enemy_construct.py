@@ -5,6 +5,16 @@ from constructor_test import Mob #at some point lets move Mob default class here
 #mob type holder
 Mobtypes = ["Zombie", "Skeleton", "Bandit", "Animal"]
 
+
+#default mob class
+class Mob:
+    def __init__(self, mob_tag, health, damage, defense):
+        self.mob_tag = mob_tag
+        self.health = health
+        self.damage = damage
+        self.defense = defense
+
+
 #mob classes
 class Zombie(Mob):
     def __init__(self):
