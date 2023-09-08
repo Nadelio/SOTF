@@ -4,7 +4,7 @@ import json
 file_name = "Save.json"
 save = []
         
-def write_data( data):
+def write_data(data):
     save.append(data)         
         
 def remove_data(data):
