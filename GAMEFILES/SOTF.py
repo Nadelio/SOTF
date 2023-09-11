@@ -62,7 +62,7 @@ def choose_poi():
         case "inventory":
             invcheck()
         case "craft":
-            crafting()
+            craft()
         case "stop":
             sys.exit()
 
@@ -217,7 +217,7 @@ def player_atk():
 
 
 #crafting code
-def crafting():
+def craft():
     clear_screen.main()
     if(inv.is_empty()):
         pass
@@ -309,7 +309,7 @@ def run():
         case "inventory":
             invcheck()
         case "craft":
-            crafting()
+            craft()
         case "stop":
             sys.exit()
         case "dev":
