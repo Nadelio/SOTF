@@ -76,7 +76,7 @@ def misc_spec_choice():
         misc_spec_choice()
 
 def stats():
-    print(elec_stat, mech_stat, chem_stat, med_stat, spd_stat, agl_stat, str_stat, scav_stat, luck_stat, crft_stat, char_stat)
+    print(f'{elec_stat}, {mech_stat}, {chem_stat}, {med_stat}, {spd_stat}, {agl_stat}, {str_stat}, {scav_stat}, {luck_stat}, {crft_stat}, {char_stat}')
 
 def runtime():
     stats()
